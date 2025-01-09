@@ -1,3 +1,4 @@
+using ECommerce.Domain.Entities;
 using ECommerce.Domain.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,4 +13,7 @@ public interface IApplicationDbContext
     DbSet<AppUserLogin> UserLogins { get; }
     DbSet<AppUserToken> UserTokens { get; }
     DbSet<AppRoleClaim> RoleClaims { get; }
+    DbSet<RefreshToken> RefreshTokens { get; }
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
+
